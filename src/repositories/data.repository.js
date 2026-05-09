@@ -3,11 +3,11 @@ import mongoose from 'mongoose';
 
 const COLLECTION_NAME = 'products';
 
-const getAll = async () => {
+const getAll = async (type) => {
         try {
             return mongoose.connection
                 .collection(COLLECTION_NAME)
-                .find({})
+                .find({ type: type })
                 .toArray();
         } catch (error) {
             throw error;
