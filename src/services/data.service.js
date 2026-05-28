@@ -1,7 +1,14 @@
-import getAll from '../repositories/data.repository.js';
+import { getDataType, getDataAll } from '../repositories/data.repository.js';
 
 const findData = async (type) => {
-  return await getAll(type);
+  return await getDataType(type);
 };
 
-export default findData;
+const findAll = async () => {
+  return await getDataAll();
+}
+
+export {
+  findData,
+  findAll
+};

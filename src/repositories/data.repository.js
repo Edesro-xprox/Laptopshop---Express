@@ -3,7 +3,7 @@ import mongoose from 'mongoose';
 
 const COLLECTION_NAME = 'products';
 
-const getAll = async (type) => {
+const getDataType = async (type) => {
         try {
             return mongoose.connection
                 .collection(COLLECTION_NAME)
@@ -14,4 +14,18 @@ const getAll = async (type) => {
         }
 }
 
-export default getAll;
+const getDataAll = async () => {
+    try{
+        return mongoose.connection
+                .collection(COLLECTION_NAME)
+                .find({})
+                .toArray();
+    }catch(error){
+        throw error;
+    }
+}
+
+export {
+    getDataType,
+    getDataAll
+};

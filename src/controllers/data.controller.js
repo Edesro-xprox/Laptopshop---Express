@@ -1,4 +1,4 @@
-import findData from '../services/data.service.js';
+import { findData, findAll } from '../services/data.service.js';
 
 const getData = async (req, res) => {
   try {
@@ -10,4 +10,16 @@ const getData = async (req, res) => {
   }
 };
 
-export default getData;
+const getAllData = async (req, res) => {
+  try{
+    const data = await findAll();
+    res.json(data);
+  }catch(error){
+    res.status(500).json({ error: error.message });
+  }
+}
+
+export { 
+  getData,
+  getAllData
+};

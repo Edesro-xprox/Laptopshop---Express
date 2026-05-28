@@ -1,8 +1,9 @@
 import express from 'express';
-import getData from '../controllers/data.controller.js';
+import { getData, getAllData } from '../controllers/data.controller.js';
 
 const routerData = express.Router();
 
+routerData.get('/', getAllData);
 // GET /data
 routerData.get('/:type', getData);
 
