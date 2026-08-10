@@ -4,26 +4,22 @@ import jwt from 'jsonwebtoken';
 
 const findUserName = async (user, password) =>{
     const userFound = await getByUserName(user);
-    console.log('flujo de código llego hasta aquí');
-    console.log(userFound);
     if(!userFound) return null;
-    console.log('flujo de código llego hasta aquí 2');
     const passwordMatch = await bcrypt.compare(password, userFound.password);
     if(!passwordMatch) return null;
-    console.log('flujo de código llegó hasta aquí 3');
     //Crear el token de autenticación
 
     //Contenido identificador del token
     const payload = {
         id: userFound._id,
     };
-    console.log(payload);
+
     const token = jwt.sign(
         payload,
         process.env.JWT_SECRET,
         { expiresIn: process.env.JWT_EXPIRES_IN }
     )
-    console.log(token)
+    
     return { userFound, token };
 }
 
