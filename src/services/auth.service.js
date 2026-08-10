@@ -23,6 +23,8 @@ const findUserName = async (user, password) =>{
         process.env.JWT_SECRET,
         { expiresIn: process.env.JWT_EXPIRES_IN }
     )
+    console.log(userFound)
+    console.log(token)
     return { userFound, token };
 }
 
