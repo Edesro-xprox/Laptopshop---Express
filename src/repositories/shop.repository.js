@@ -9,6 +9,12 @@ const getAll = async () => {
     .toArray();
 };;
 
+const getShopByUser = (userId) =>{
+  return mongoose.connection
+  .collection(COLLECTION_NAME)
+  .findOne({ userId: userId });
+}
+
 const post = async (shopData) =>{
     const result = await mongoose.connection
     .collection(COLLECTION_NAME)
@@ -49,6 +55,7 @@ const deleteAll = async (data) => {
 
 export {
   getAll,
+  getShopByUser,
   post,
   put,
   deleteById,

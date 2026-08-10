@@ -1,4 +1,4 @@
-import { findAllShop, changeShop, removeAllShops, removeShop, changeQuantityShop  } from '../services/shop.service.js';
+import { findAllShop, findShopByUser, changeShop, removeAllShops, removeShop, changeQuantityShop  } from '../services/shop.service.js';
 
 const getAllShop = async (req, res) => {
   try {
@@ -8,6 +8,16 @@ const getAllShop = async (req, res) => {
     res.status(500).json({ error: error.message });
   }
 };
+
+const getShopByUser = async (req, res) =>{
+  try{ 
+    const { userId } = req.params;
+    const shop = await findShopByUser(userId);
+    res.json(shop);
+  }catch(error){
+    res.status(500).json({ error: error.message })
+  }
+}
 
 const postShop = async (req, res) => {
   try {
@@ -52,6 +62,7 @@ const deleteAllShops = async (req, res) => {
 
 export {
   getAllShop,
+  getShopByUser,
   postShop,
   deleteShop,
   putShop,

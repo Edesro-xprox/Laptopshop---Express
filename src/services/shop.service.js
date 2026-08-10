@@ -1,8 +1,12 @@
-import { getAll, post, put, deleteById, deleteAll  } from '../repositories/shop.repository.js';
+import { getAll, getShopByUser, post, put, deleteById, deleteAll  } from '../repositories/shop.repository.js';
 
 const findAllShop = async () => {
   return await getAll();
 };
+
+const findShopByUser = async (userId) =>{
+  return await getShopByUser(userId);
+}
 
 const changeShop = async (shopData) => {
   const shops = await getAll();
@@ -38,6 +42,7 @@ const removeAllShops = async (data) => {
 
 export {
   findAllShop,
+  findShopByUser,
   changeShop,
   removeShop,
   changeQuantityShop,
