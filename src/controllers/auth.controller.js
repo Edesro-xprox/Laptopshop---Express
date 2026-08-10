@@ -3,6 +3,7 @@ import { findUserName, insertUser } from "../services/auth.service.js";
 const getUser = async (req, res) =>{
     try{
         const { user, password } = req.body; 
+        console.log(user, password);
         const { userFound, token } = await findUserName(user, password);
         res.json({ userFound, token });
     }catch(error){
