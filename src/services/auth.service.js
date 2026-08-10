@@ -7,10 +7,10 @@ const findUserName = async (user, password) =>{
     console.log('flujo de código llego hasta aquí');
     console.log(userFound);
     if(!userFound) return null;
-    
+    console.log('flujo de código llego hasta aquí 2');
     const passwordMatch = await bcrypt.compare(password, userFound.password);
     if(!passwordMatch) return null;
-
+    console.log('flujo de código llegó hasta aquí 3');
     //Crear el token de autenticación
 
     //Contenido identificador del token
