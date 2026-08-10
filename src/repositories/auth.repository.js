@@ -2,9 +2,9 @@ import mongoose from 'mongoose';
 
 const COLLECTION_NAME = 'users';
 
-const getByUserName = async (user) => {
+const getByUserName = (user) => {
         try {
-            return await mongoose.connection
+            return mongoose.connection
                 .collection(COLLECTION_NAME)
                 .findOne({ user })
         } catch (error) {
@@ -12,9 +12,9 @@ const getByUserName = async (user) => {
         }
 }
 
-const postNewUser = async (newUser, hashedPassword) => {
+const postNewUser = (newUser, hashedPassword) => {
     try{
-        return await mongoose.connection
+        return mongoose.connection
             .collection(COLLECTION_NAME)
             .insertOne({ user: newUser, password: hashedPassword });
     }catch(error){

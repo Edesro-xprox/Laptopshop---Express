@@ -4,7 +4,7 @@ import jwt from 'jsonwebtoken';
 
 const findUserName = async (user, password) =>{
     const userFound = await getByUserName(user);
-    
+    console.log(userFound);
     if(!userFound) return null;
     
     const passwordMatch = await bcrypt.compare(password, userFound.password);
