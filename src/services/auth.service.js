@@ -4,7 +4,7 @@ import jwt from 'jsonwebtoken';
 
 const findUserName = async (user, password) =>{
     const userFound = await getByUserName(user);
-    console.log('flujo de código lle´go hasta aquí');
+    console.log('flujo de código llego hasta aquí');
     console.log(userFound);
     if(!userFound) return null;
     
